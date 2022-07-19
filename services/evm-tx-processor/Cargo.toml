@@ -1,0 +1,20 @@
+[package]
+name = "evm-tx-processor"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.58"
+common = { path = "../../libraries/common"}
+tx_processor = { path = "../../libraries/tx_processor"}
+dotenv = "0.15.0"
+env_logger = "0.9.0"
+lapin = "2.1.1"
+log = "0.4.17"
+futures = "0.3.21"
+tokio = { version = "1.19.2", features = ["full"] }
+serde_json ="1.0"
+futures-lite = "1.12.0"
+rayon = "1.5.3"

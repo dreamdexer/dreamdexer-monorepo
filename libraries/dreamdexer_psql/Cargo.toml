@@ -1,0 +1,14 @@
+[package]
+name = "dreamdexer_psql"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+diesel = { version = "1.4.4", features = ["postgres"] }
+dotenv = "0.15.0"
+common = { path = "../common"}
+tokio-postgres = "0.7.6"
+anyhow = "1.0.58"
+tokio = "1.19.2"

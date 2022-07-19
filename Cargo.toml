@@ -1,0 +1,12 @@
+[workspace]
+
+members = [
+    "libraries/tx_processor",
+    "libraries/blockchain_api",
+    "libraries/common",
+	"libraries/dreamdexer_psql",
+	"services/evm-collector",
+	"services/evm-tx-processor",
+	"services/evm-loader"
+
+]
