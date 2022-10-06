@@ -10,7 +10,7 @@ use anyhow::Result;
 use common::{EvmCompleteTxn, NormalizedTx, TokenTransfer};
 
 use rayon::prelude::*;
-use serde_json::{from_value, json};
+use serde_json::from_value;
 use std::sync::Mutex;
 // "Transfer(address,address,uint256)";
 use common::NormalizedTokenTransfer;

@@ -1,4 +1,4 @@
-use serde_json::{from_str, json, Value};
+use serde_json::{from_str, Value};
 
 pub fn get_avalanche_tokens_map() -> Value {
 	from_str::<Value>(

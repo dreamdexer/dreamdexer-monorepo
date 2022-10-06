@@ -1,11 +1,10 @@
-use common::{EvmCompleteTxn, EvmTxnReceipt, NormalizedTokenTransfer};
-use common::{EvmTxn, NormalizedTx};
+use common::NormalizedTx;
+use common::{EvmCompleteTxn, NormalizedTokenTransfer};
 use futures::future::join;
 use futures::StreamExt;
 use lapin::{options::*, types::FieldTable, BasicProperties, Channel, Connection, ConnectionProperties};
 use log::{error, info};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
-use std::fs;
 use std::str;
 use std::sync::Mutex;
 use tx_processor::EvmTxnProcessor;
@@ -67,7 +66,7 @@ impl ProcessorPipeline {
 				FieldTable::default(),
 			)
 			.await;
-		if queue.is_err() {
+		if token_transfers_queue.is_err() {
 			error!(target: "producer","RabbitMQ declare queue error")
 		}
 		let txns_queue = publish_txns_channel
@@ -79,7 +78,7 @@ impl ProcessorPipeline {
 				FieldTable::default(),
 			)
 			.await;
-		if queue.is_err() {
+		if txns_queue.is_err() {
 			error!(target: "producer","RabbitMQ declare queue error")
 		}
 

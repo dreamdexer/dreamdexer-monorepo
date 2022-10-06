@@ -6,7 +6,7 @@ members = [
     "libraries/common",
 	"libraries/dreamdexer_psql",
 	"services/evm-collector",
-	"services/evm-tx-processor",
-	"services/evm-loader"
-
+	"services/evm-processor",
+	"services/evm-loader",
+	"services/evm-syncer"
 ]

@@ -1,6 +1,6 @@
 use super::instruction_parser::InstructionParser;
 use super::token_program_data_processor::TokenProgramDataProcessor;
-use crate::{NormalizedTx, TokenTransfer, TxnProcessor};
+use crate::{NormalizedTx, TokenTransfer};
 
 use anyhow::Result;
 use common::{BlockchainName, SolanaTxn};

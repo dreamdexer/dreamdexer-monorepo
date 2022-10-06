@@ -27,8 +27,12 @@ async fn main() -> Result<()> {
 		.build();
 
 	// Init rabbitmq client
-
-	let producer = producer::Producer::connect(std::env::var("AMQP_ADDR").unwrap().to_string()).await;
+	let rabbitmq_url = format!(
+		"amqp://{}:{}@127.0.0.1:5672",
+		std::env::var("RABBITMQ_USERNAME").unwrap().to_string(),
+		std::env::var("RABBITMQ_PASSWORD").unwrap().to_string()
+	);
+	let producer = producer::Producer::connect(rabbitmq_url).await;
 
 	match evm_api {
 		BlockchainApiBuilded::Evm(api) => {

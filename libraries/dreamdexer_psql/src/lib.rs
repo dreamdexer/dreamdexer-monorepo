@@ -1,19 +1,9 @@
-#[macro_use]
-extern crate diesel;
-
-pub mod models;
-pub mod schema;
-
-use std::future::Future;
-
 use anyhow::Result;
 use common::{NormalizedTokenTransfer, NormalizedTx};
 // use common::NormalizedTx;
 // use diesel::pg::PgConnection;
 // use diesel::prelude::*;
-use models::{NewTxn, Txn};
 use std::sync::Arc;
-use tokio::time::{sleep, Duration};
 use tokio_postgres::{tls::NoTlsStream, Client, Connection, NoTls, Row, Socket};
 
 pub async fn establish_connection(
